@@ -1,0 +1,1710 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Cartografia 3D | Vizart | ODS2021</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/serif.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	
+		<style>
+			a {
+				color: coral!important;
+			}
+
+			.text-left {
+				text-align: left!important;
+			}
+
+			.text-center {
+				text-align: center;
+			}
+
+			.font-0-75 {
+				font-size: 0.75rem;
+			}
+			
+			.font-1 {
+				font-size: 1rem;
+			}
+
+			.font-1-25 {
+				font-size: 1.25rem;
+			}
+
+			.font-1-5 {
+				font-size: 1.5rem;
+			}
+
+			.font-2 {
+				font-size: 2rem;
+			}
+
+			.font-huge {
+				font-size: 300px;
+			}
+
+			.font-italic {
+				font-style: italic;
+			}
+
+			.col-2 {
+				flex: 0 0 16%;
+				max-width: 16%;
+				width: 100%;
+				padding: 10px;
+			}
+
+			.col-3 {
+				flex: 0 0 25%;
+				max-width: 25%;
+				width: 100%;
+				padding: 10px;
+			}
+
+			.col-4 {
+				flex: 0 0 33%;
+				max-width: 33%;
+				width: 100%;
+				padding: 10px;
+			}
+
+			.col-6 {
+				flex: 0 0 50%;
+				max-width: 50%;
+				width: 100%;
+				padding: 10px;
+			}
+
+			.flex {
+				display: flex;
+			}
+
+			.flex-column {
+				flex-direction: column;
+			}
+	
+			.flex-center {
+				align-items: center;
+				justify-content: center;
+			}
+
+			.flex-end {
+				justify-content: flex-end;
+				align-items: flex-end;
+			}
+
+			.flex-justify-center {
+				justify-content: center;
+			}
+
+			.flex-justify-between {
+				justify-content: space-between;
+			}
+
+			.flex-justify-around {
+				justify-content: space-around;
+			}
+
+			.flex-align-center {
+				align-items: center;
+			}
+
+			.fw {
+				width: 100%;
+			}
+
+			.fh {
+				height: 100%;
+			}
+
+			.card {
+				padding: 10px;
+				box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+				width: 100%;
+			}
+
+			.ul-no-decoration {
+				text-decoration: none;
+				list-style-type: none!important;
+			}
+
+			.ul-horizontal {
+				display: flex!important;
+				justify-content: space-between;
+				text-decoration: none;
+				list-style-type: none!important;
+				margin: 0!important;
+			}
+
+			.ul-horizontal-around {
+				display: flex!important;
+				justify-content: space-around;
+				text-decoration: none;
+				list-style-type: none!important;
+				margin: 0!important;
+			}
+
+			.ul-horizontal-center {
+				display: flex!important;
+				justify-content: center;
+				text-decoration: none;
+				list-style-type: none!important;
+				margin: 0!important;
+			}
+
+			.li-flex-row {
+				display: flex;
+				margin-top: 15px;
+			}
+
+			.li-flex-column {
+				display: flex;
+				flex-direction: column;
+				text-align: center;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.mr-1 {
+				margin-right: 10px;
+			}
+
+			.mr-2 {
+				margin-right: 20px;
+			}
+
+			.mr-10 {
+				margin-right: 100px;
+			}
+
+			.reveal .slides section .fragment.highlight-corn,
+			.reveal .slides section .fragment.highlight-current-corn {
+				opacity: 1;
+				visibility: inherit; 
+			}
+
+			.reveal .slides section .fragment.highlight-corn.visible {
+				color: cornflowerblue;
+			}
+
+			.reveal .slides section .fragment.highlight-current-corn.current-fragment {
+				color: cornflowerblue;
+			}
+
+			.slide-image-container {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.slide-image-container img {
+				height: 100%;
+				width: 100%;
+				margin: 0!important;
+				min-height: 48px;
+				min-width: 48px;
+			}
+
+			.slide1-image-container {
+				max-height: 6vh;
+				max-width: 6vw;
+				padding: 1rem;
+				margin-right: auto;
+				margin-left: auto;
+				margin-top: 40px;
+			}
+
+			.slide1-image-container img:first-child {
+				margin-right: 10px!important;
+			}
+
+			.slide2-about img {
+				border-radius: 50%;
+			}
+
+			.slide2-contact {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.slide2-contact ul {
+				display: flex;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				font-size: 3rem;
+			}
+
+			.slide2-contact ul li {
+				display: block;
+				list-style: none;
+				font-size: 3rem;
+				margin-right: 5px;
+			}
+
+			.slide4-image-container {
+				height: 50vh;
+				width: 35vw;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 40px;
+			}
+
+			.slide5-image-container {
+				width: 40px;
+				height: 40px;
+			}
+
+			.slide5-image-container img {
+				min-height: unset;
+				min-width: unset;
+			}
+
+			.slide6-image-container {
+				height: 50vh;
+				width: 100%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.slide6-1-image-container {
+				height: 60vh;
+				width: 80%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.slide8-1-image-container {
+				height: 60vh;
+				width: 80%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.slide8-2-image-container {
+				/* height: 45vh; */
+				width: 100%;
+			}
+
+			.slide8-6-image-container {
+				width: 100%;
+			}
+
+			.slide10-image-container {
+				height: 30px;
+				width: 30px;
+				margin-right: 5px;
+			}
+
+			.slide10-image-container img {
+				min-height: 15px;
+				min-width: 15px;
+			}
+
+			.slide12-image-container {
+				height: 150px;
+				width: 150px;
+			}
+
+			.slide13-image-container {
+				height: 30px;
+				width: 30px;
+				margin-right: 5px;
+			}
+
+			.slide13-image-container img {
+				min-height: 15px;
+				min-width: 15px;
+			}
+
+			.slide14-image-container {
+				height: 50px;
+				width: 50px;
+				margin-right: 20px;
+			}
+
+			.slide15-title {
+				font-size: 25px!important;
+				text-align: left!important;
+			}
+
+			.slide15-subtitle {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-top: 80px!important;
+				margin-bottom: 80px!important;
+			}
+
+			.slide15-subtitle div {
+				font-size: 4rem;
+			}
+
+			.slide15-flag-image-container {
+				width: 60px;
+				margin-left: 20px;
+			}
+
+			.slide15-image-container {
+				height: 150px;
+				width: 150px;
+			}
+
+			.slide15-image-container img {
+				border-radius: 50%;
+			}
+
+			.slide16-image-container {
+				height: 50px;
+				width: 50px;
+				margin-right: 20px;
+			}
+
+			.slide17-title {
+				font-size: 25px!important;
+				text-align: left!important;
+			}
+
+			.slide17-image-container {
+				max-height: 6vh;
+				max-width: 6vw;
+				padding: 1rem;
+				margin-right: auto;
+				margin-left: auto;
+			}
+
+			.slide17-image-container img:first-child {
+				margin-right: 10px!important;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2 class="r-fit-text">
+						Cartografia 3D
+					</h2>
+					<p class="font-1-5">
+						Vizart | 
+						<a href="https://www.vizart.io">vizart.io</a>
+						 | @hellovizart
+					</p>
+					<p class="r-fit-text">
+						un viaggio attraverso il tempo e lo spazio, ostacolato dalle licenze
+					</p>
+					<div class="slide-image-container slide1-image-container">
+						<img src="img/vizart.png" />
+						<img src="img/logoODS.png" />
+					</div>
+					<p>
+						<small>
+							#ODS2021
+						</small>
+					</p>
+				</section>
+				<section>
+					<h3>
+						Chi è Vizart
+					</h3>
+					<div class="flex slide2-about">
+						<div class="col-6">
+							<div class="image-container">
+								<img src="img/lezan.webp" />
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="image-container">
+								<img src="img/silla.webp" />
+							</div>
+						</div>
+					</div>
+					<div class="slide2-contact">
+						<ul>
+							<li>
+								<a href="https://www.instagram.com/hellovizart">
+									<svg xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 448 512"
+										stroke="currentColor"
+										fill="currentColor"
+										stroke-width="0"
+										height="1em"
+										width="1em"
+										class="hvr-icon"
+									>
+										<path d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z"></path>
+									</svg>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.twitter.com/hellovizart">
+									<svg xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 448 512"
+										stroke="currentColor"
+										fill="currentColor"
+										stroke-width="0"
+										height="1em"
+										width="1em"
+									>
+										<path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"></path>
+									</svg>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/hellovizart">
+									<svg xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 448 512"
+										stroke="currentColor"
+										fill="currentColor"
+										stroke-width="0"
+										height="1em"
+										width="1em"
+									>
+										<path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path>
+									</svg>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.behance.net/viz-art">
+									<svg xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 448 512" 
+										stroke="currentColor"
+										fill="currentColor"
+										stroke-width="0"
+										height="1em"
+										width="1em"
+									>
+										<path d="M186.5 293c0 19.3-14 25.4-31.2 25.4h-45.1v-52.9h46c18.6.1 30.3 7.8 30.3 27.5zm-7.7-82.3c0-17.7-13.7-21.9-28.9-21.9h-39.6v44.8H153c15.1 0 25.8-6.6 25.8-22.9zm132.3 23.2c-18.3 0-30.5 11.4-31.7 29.7h62.2c-1.7-18.5-11.3-29.7-30.5-29.7zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zM271.7 185h77.8v-18.9h-77.8V185zm-43 110.3c0-24.1-11.4-44.9-35-51.6 17.2-8.2 26.2-17.7 26.2-37 0-38.2-28.5-47.5-61.4-47.5H68v192h93.1c34.9-.2 67.6-16.9 67.6-55.9zM380 280.5c0-41.1-24.1-75.4-67.6-75.4-42.4 0-71.1 31.8-71.1 73.6 0 43.3 27.3 73 71.1 73 33.2 0 54.7-14.9 65.1-46.8h-33.7c-3.7 11.9-18.6 18.1-30.2 18.1-22.4 0-34.1-13.1-34.1-35.3h100.2c.1-2.3.3-4.8.3-7.2z"></path>
+									</svg>
+								</a>
+							</li>
+						</ul>
+						<p>
+							<small>
+								<a href="https://www.vizart.io">www.vizart.io</a> | <a href="mailto:hello@vizart.io">hello@vizart.io</a>
+							</small>
+						</p>
+					</div>
+				</section>
+				<section>
+					<h3>
+						Dove potete trovare queste slide?
+					</h3>
+					<p>
+						<a href="https://lezan.github.io/ods2021">
+							https://lezan.github.io/ods2021
+						</a>
+					</p>
+				</section>
+				<section>
+					<section>
+						<h3>
+							Di cosa parliamo oggi
+						</h3>
+						<h5 style="margin-top: 30px;">
+							cartografia 3D: che cosa è
+						</h5>
+						<div class="slide-image-container slide4-image-container">
+							<img src="img/3dCartography.webp" />
+						</div>
+					</section>
+					<section>
+						<h3>
+							I ringraziamenti, subito
+						</h3>
+						<ul class="text-left" style="margin-top: 30px;">
+							<li class="flex flex-align-center">
+								<div class="mr-1">
+									<a href="https://somethingaboutmaps.wordpress.com">
+										Daniel Huffman
+									</a>
+								</div>
+								<a href="https://twitter.com/pinakographos" class="flex">
+									<svg xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 448 512"
+										stroke="currentColor"
+										fill="currentColor"
+										stroke-width="0"
+										height="1em"
+										width="1em"
+									>
+										<path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"></path>
+									</svg>
+								</a>
+							</li>
+							<li class="flex flex-align-center">
+								<div class="mr-1">
+									<a href="https://peteratwoodprojects.wordpress.com">
+										Peter Atwood
+									</a>
+								</div>
+								<a href="https://twitter.com/peterincan" class="flex">
+									<svg xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 448 512"
+										stroke="currentColor"
+										fill="currentColor"
+										stroke-width="0"
+										height="1em"
+										width="1em"
+									>
+										<path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"></path>
+									</svg>
+								</a>
+							</li>
+							<li class="flex flex-align-center">
+								<div class="mr-1">
+									<a href="https://wanderingcartographer.wordpress.com">
+										Morgan Hite
+									</a>
+								</div>
+								<a href="https://twitter.com/morganhite" class="flex">
+									<svg xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 448 512"
+										stroke="currentColor"
+										fill="currentColor"
+										stroke-width="0"
+										height="1em"
+										width="1em"
+									>
+										<path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"></path>
+									</svg>
+								</a>
+							</li>
+							<li class="flex flex-align-center">
+								<div class="mr-1">
+									<a href="https://www.joshuastevens.net">
+										Joshua Stevens
+									</a>
+								</div>
+								<a href="https://twitter.com/jscarto" class="flex">
+									<svg xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 448 512"
+										stroke="currentColor"
+										fill="currentColor"
+										stroke-width="0"
+										height="1em"
+										width="1em"
+									>
+										<path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"></path>
+									</svg>
+								</a>
+							</li>
+						</ul>
+						<h4 class="fragment" style="margin-top: 30px;">
+							È grazie a loro se oggi esiste del materiale con cui iniziare a sperimentare
+						</h4>
+					</section>
+				</section>
+				<section data-auto-animate>
+					<h3>
+						Dati e fasi
+					</h3>
+					<ul class="ul-no-decoration">
+						<li class="li-flex-row flex-align-center">
+							<div class="slide-image-container slide5-image-container mr-1">
+								<img src="img/map_ico.png" />
+							</div>
+							<div class="fragment highlight-corn" data-fragment-index="1" data-id="mappe">
+								Mappe
+							</div>
+						</li>
+						<li class="li-flex-row flex-align-center">
+							<div class="slide-image-container slide5-image-container mr-1">
+								<img src="img/dem_ico.png" />
+							</div>
+							<div>
+								Digital Elevation Model (DEM)	
+							</div>
+						</li>
+						<li class="li-flex-row flex-align-center">
+							<div class="slide-image-container slide5-image-container mr-1">
+								<img src="img/render_ico.png" />
+							</div>
+							<div>
+								Rendering
+							</div>
+						</li>
+						<li class="li-flex-row flex-align-center">
+							<div class="slide-image-container slide5-image-container mr-1">
+								<img src="img/tool_ico.png" />
+							</div>
+							<div>
+								Strumenti
+							</div>
+						</li>
+					</ul>
+				</section>
+				<section data-auto-animate>
+					<section data-auto-animate>
+						<h3>
+							<div data-id="mappe">
+								Mappe
+							</div>
+						</h3>
+						<div class="slide-image-container slide6-1-image-container">
+							<img src="img/cartegeologique_france.jpg" />
+						</div>
+						<p style="font-size: 0.7rem;">
+							Source image: EUDASM
+						</p>
+					</section>
+					<section>
+						<h3>
+							Requisiti da soddisfare
+						</h3>
+						<ul>
+							<li class="fragment">
+								disponibilità online
+							</li>
+							<li class="fragment">
+								qualità (risoluzione e condizione)
+							</li>
+							<li class="fragment">
+								licenza
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h3>
+							Il lavoro sulla mappa
+						</h3>
+						<ul>
+							<li>
+								georeferenziazione
+							</li>
+							<li>
+								restauro
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h3>
+							Georeferenziazione
+						</h3>
+						<h5>
+							In cosa consiste e quali sono le fasi
+						</h5>
+						<div class="flex" style="margin-top: 50px!important;">
+							<div class="slide-image-container">
+								<img src="img/Georeferencing_02.jpg" />
+							</div>
+							<div style="display: flex;">
+								<ul style="margin-top: auto; margin-bottom: auto;">
+									<li>
+										individuare la proiezione
+									</li>
+									<li>
+										georeferenziare
+									</li>
+								</ul>
+							</div>
+						</div>
+						<p style="font-size: 0.7rem;">
+							Source image: BnF Gallica
+						</p>
+					</section>
+					<section>
+						<h3>
+							Restauro
+						</h3>
+						<div class="slide-image-container slide6-image-container">
+							<div class="col-6">
+								<img src="img/Elba.jpg" />
+							</div>
+							<div class="col-6">
+								<img src="img/Elba-17.jpg" />
+							</div>
+						</div>
+						<div class="fragment" data-fragment-index="1">
+							<span>
+								Se non si vedono differenze, abbiamo fatto un brutto lavoro
+								<span style="font-size: 0.6rem">o avete bisogno di un paio di occhiali</span>
+							</span>
+						</div>
+						<p style="font-size: 0.7rem;">
+							Source image: IGME
+						</p>
+					</section>
+				</section>
+				<section data-auto-animate>
+					<h3>
+						Dati e fasi
+					</h3>
+					<ul class="ul-no-decoration">
+						<li class="li-flex-row flex-align-center">
+							<div class="slide-image-container slide5-image-container mr-1">
+								<img src="img/map_ico.png" />
+							</div>
+							<div>
+								Mappe
+							</div>
+						</li>
+						<li class="li-flex-row flex-align-center">
+							<div class="slide-image-container slide5-image-container mr-1">
+								<img src="img/dem_ico.png" />
+							</div>
+							<div class="fragment highlight-corn" data-fragment-index="1" data-id="dem">
+								Digital Elevation Model (DEM)
+							</div>
+						</li>
+						<li class="li-flex-row flex-align-center">
+							<div class="slide-image-container slide5-image-container mr-1">
+								<img src="img/render_ico.png" />
+							</div>
+							<div>
+								Rendering
+							</div>
+						</li>
+						<li class="li-flex-row flex-align-center">
+							<div class="slide-image-container slide5-image-container mr-1">
+								<img src="img/tool_ico.png" />
+							</div>
+							<div>
+								Strumenti
+							</div>
+						</li>
+					</ul>
+				</section>
+				<section data-auto-animate>
+					<section data-auto-animate>
+						<h3>
+							<div data-id="dem">
+								Digital Elevation Model (DEM)
+							</div>
+						</h3>
+						<div class="slide-image-container slide8-1-image-container">
+							<img src="img/Spain_DEM_rescale-eq-16bit.jpg"/>
+						</div>
+						<p style="font-size: 0.7rem;">
+							Source image: EarthData
+						</p>
+					</section>
+					<section>
+						<h3>
+							Senza generalizzare
+						</h3>
+						<ul class="ul-horizontal" style="margin-top: 50px!important; font-size: 1.5rem;">
+							<li class="li-flex-column">
+								<div>
+									Digital Terrain Model
+								</div>
+								<div class="slide-image-container slide8-2-image-container">
+									<img src="img/DTM_render_big.png" />
+								</div>
+							</li>
+							<li class="li-flex-column">
+								<div>
+									Digital Surface Model
+								</div>
+								<div class="slide-image-container slide8-2-image-container">
+									<img src="img/STM_render_big.png" />
+								</div>
+							</li>
+							<li class="li-flex-column">
+								<div>
+									Lidar
+								</div>
+								<div class="slide-image-container slide8-2-image-container">
+									<img src="img/Lidarwbubble.png" />
+								</div>
+							</li>
+						</ul>
+						<p style="font-size: 0.7rem;">
+							Source image: CNIG
+						</p>
+					</section>
+					<section>
+						<h3>
+							Requisiti da soddisfare
+						</h3>
+						<ul>
+							<li>
+								risoluzione
+							</li>
+							<li>
+								licenza
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h3>
+							Il lavoro sui DEM
+						</h3>
+						<ul>
+							<li>
+								fusione
+							</li>
+							<li>
+								riproiezione
+							</li>
+							<li>
+								ritaglio
+							</li>
+							<li>
+								traslazione
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h3>
+							Riproiezione: un appello
+						</h3>
+						<p style="margin-top: 50px!important">
+							Quando lavorate sulle mappe specificate sempre la proiezione che state utilizzando
+						</p>
+						<div class="slide-image-container slide8-6-image-container">
+							<img src="img/projection.png" />
+						</div>
+					</section>
+				</section>
+				<section data-auto-animate>
+					<h3>
+						Dati e fasi
+					</h3>
+					<ul class="ul-no-decoration">
+						<li class="li-flex-row flex-align-center">
+							<div class="slide-image-container slide5-image-container mr-1">
+								<img src="img/map_ico.png" />
+							</div>
+							<div>
+								Mappe
+							</div>
+						</li>
+						<li class="li-flex-row flex-align-center">
+							<div class="slide-image-container slide5-image-container mr-1">
+								<img src="img/dem_ico.png" />
+							</div>
+							<div>
+								Digital Elevation Model (DEM)	
+							</div>
+						</li>
+						<li class="li-flex-row flex-align-center">
+							<div class="slide-image-container slide5-image-container mr-1">
+								<img src="img/render_ico.png" />
+							</div>
+							<div class="fragment highlight-corn" data-fragment-index="1" data-id="rendering">
+								Rendering
+							</div>
+						</li>
+						<li class="li-flex-row flex-align-center">
+							<div class="slide-image-container slide5-image-container mr-1">
+								<img src="img/tool_ico.png" />
+							</div>
+							<div>
+								Strumenti
+							</div>
+						</li>
+					</ul>
+				</section>
+				<section data-auto-animate>
+					<section data-auto-animate>
+						<h3>
+							<div data-id="rendering">
+								Rendering
+							</div>
+						</h3>
+						<div class="font-2 font-italic" style="margin-top: 50px!important;">
+							"Nella computer grafica, la conversione mediante apposito software del profilo
+							di un'immagine bidimensionale in un'immagine dall'aspetto realistico e percepibile come
+							<span class="fragment highlight-corn" data-fragment-index="1" style="display: inline-flex;">tridimensionale</span>, grazie al calcolo accurato della prospettiva
+							e all'aggiunta di colori,
+							<span class="fragment highlight-corn" data-fragment-index="1" style="display: inline-flex;">luci</span>
+							e
+							<span class="fragment highlight-corn" data-fragment-index="1" style="display: inline-flex;">ombreggiature</span>"
+							[<a href="https://www.google.com/search?q=rendering+definizione">#</a>]
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3>
+							<div data-id="rendering">
+								Rendering
+							</div>
+						</h3>
+						<p style="margin-top: 50px!important;">
+							L'elemento chiave per un effetto tridimensionale sono le ombre generate
+							dall'illuminazione e dal rilievo
+						</p>
+					</section>
+					<section>
+						<h3>
+							Ombreggiatura
+						</h3>
+						<div class="flex">
+							<div class="col-6 flex flex-column font-1">
+								<video controls autoplay loop width="100%">
+									<source src="img/shadow.mp4" type="video/mp4">
+								</video>
+								<div style="margin-top: 25px;">
+									Variazione altitudine della luce
+								</div>
+							</div>
+							<div class="col-6 flex flex-column flex-justify-center text-left font-1-5">
+								<span>L'ombra crea l'effetto 3D</span>
+								<span style="margin-top: 10px!important;">
+									Più ci si avvicina allo zenit, minore è l'ombra proiettata
+								</span>
+								<span style="margin-top: 10px!important; margin-bottom: 20px!important;">
+									Trade-off effetto 3D e leggibilità
+								</span>
+								<hr width="40%" style="border: none; border-top: 1px solid black">
+								<span class="text-center" style="margin-top: 20px!important;">
+									Soluzioni:
+								</span>
+								<div class="flex flex-column">
+									<span>
+										HDRI
+									</span>
+									<span>
+										Luci multiple
+									</span>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>
+							Ombreggiatura
+						</h3>
+						<div class="flex font-1">
+							<div class="col-6 flex flex-column">
+								<video controls autoplay loop width="100%">
+									<source src="img/Displacement.mp4" type="video/mp4">
+								</video>
+								<div style="margin-top: 25px;">
+									Variazione esagerazione del rilievo
+								</div>
+							</div>
+							<div class="col-6 flex flex-column flex-justify-center text-left font-1-5">
+								<span>L'ombra crea l'effetto 3D</span>
+								<span style="margin-top: 10px!important;">
+									Maggiore è l'esagerazione, più marcate sono le ombre
+								</span>
+								<span class="text-center" style="margin-top: 10px!important;">
+									Un valore alto di displacement:
+								</span>
+								<div class="flex flex-column" style="margin-top: 10px!important;">
+									<div class="flex">
+										<div class="slide-image-container slide10-image-container">
+											<img src="img/check-mark.png" />
+										</div>
+										<div>
+											fa emergere le zone con meno rilievi
+										</div>
+									</div>
+									<div class="flex" style="margin-top: 10px!important;">
+										<div class="slide-image-container slide10-image-container">
+											<img src="img/cancel.png" />
+										</div>
+										<div>
+											compromette la leggibilità delle scritte
+										</div>
+									</div>
+								</div>
+								<span style="margin-top: 10px!important; margin-bottom: 20px!important;">
+									Trade-off effetto 3D e leggibilità
+								</span>
+								<hr width="40%" style="border: none; border-top: 1px solid black">
+								<span class="text-center" style="margin-top: 20px!important;">
+									Soluzioni:
+								</span>
+								<div class="flex flex-justify-center">
+									<span>
+										compromesso
+									</span>
+								</div>
+							</div>
+						</div>
+					</section>
+				</section>
+				<section data-auto-animate>
+					<h3>
+						Dati e fasi
+					</h3>
+					<ul class="ul-no-decoration">
+						<li class="li-flex-row flex-align-center">
+							<div class="slide-image-container slide5-image-container mr-1">
+								<img src="img/map_ico.png" />
+							</div>
+							<div>
+								Mappe
+							</div>
+						</li>
+						<li class="li-flex-row flex-align-center">
+							<div class="slide-image-container slide5-image-container mr-1">
+								<img src="img/dem_ico.png" />
+							</div>
+							<div>
+								Digital Elevation Model (DEM)	
+							</div>
+						</li>
+						<li class="li-flex-row flex-align-center">
+							<div class="slide-image-container slide5-image-container mr-1">
+								<img src="img/render_ico.png" />
+							</div>
+							<div>
+								Rendering
+							</div>
+						</li>
+						<li class="li-flex-row flex-align-center">
+							<div class="slide-image-container slide5-image-container mr-1">
+								<img src="img/tool_ico.png" />
+							</div>
+							<div class="fragment highlight-corn" data-fragment-index="1" data-id="strumenti">
+								Strumenti
+							</div>
+						</li>
+					</ul>
+				</section>
+				<section data-auto-animate>
+					<section data-auto-animate>
+						<h3>
+							<div data-id="strumenti">
+								Strumenti
+							</div>
+						</h3>
+						<p>
+							Quasi tutto software Open Source
+						</p>
+						<ul class="ul-horizontal font-1-5" style="margin-top: 50px!important;">
+							<li class="li-flex-column">
+								<div class="slide-image-container slide12-image-container">
+									<img src="img/qgis.png" />
+								</div>
+								<div>
+									QGIS
+								</div>
+							</li>
+							<li class="li-flex-column">
+								<div class="slide-image-container slide12-image-container">
+									<img src="img/gdal.png" />
+								</div>
+								<div>
+									GDAL
+								</div>
+							</li>
+							<li class="li-flex-column">
+								<div class="slide-image-container slide12-image-container">
+									<img src="img/grass.png" />
+								</div>
+								<div>
+									GRASS
+								</div>
+							</li>
+							<li class="li-flex-column">
+								<div class="slide-image-container slide12-image-container">
+									<img src="img/blender.png" />
+								</div>
+								<div>
+									Blender
+								</div>
+							</li>
+							<li class="li-flex-column">
+								<div class="slide-image-container slide12-image-container">
+									<img src="img/photoshop.png" />
+								</div>
+								<div>
+									Photoshop
+								</div>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<h3>
+						Allora, dove sono gli open data?
+					</h3>
+					<div class="slide-image-container" style="width: 10vw; margin-top: 50px!important; margin-left: auto; margin-right: auto;">
+						<img class="fw fh" src="img/andrea.jpg" />
+					</div>
+					<p style="margin-top: 50px!important">
+						Qua il tempo sta finendo
+					</p>
+					<div class="slide-image-container" style="width: 5vw; margin-top: 50px!important; margin-left: auto; margin-right: auto;">
+						<img class="fw fh" src="img/clock-gif.gif" />
+					</div>
+				</section>
+				<section>
+					<section>
+						<h3>
+							Licenze e accessibilità
+						</h3>
+						<div class="flex flex-center" style="font-size: 1.2rem;">
+							<div class="col-6">
+								<a class="fw fh" href="https://www.swisstopo.admin.ch/it/home/meta/media.detail.news.html/swisstopo-internet/news2021/news_release/20210301.html">
+									<blockquote>
+										Dal 1° marzo 2021 l’Ufficio federale di topografia swisstopo mette gratuitamente
+										a disposizione online i suoi servizi e dati digitali ufficiali.[...]
+										saranno messi a disposizione gratuitamente come Open Government Data (OGD).
+										Potranno quindi essere utilizzati e ridistribuiti liberamente.
+										Non sarà necessaria alcuna autorizzazione, solo la citazione delle fonti,
+										e sarà consentito anche l’uso commerciale.
+									</blockquote>
+								</a>
+							</div>
+							<div class="col-6">
+								<a class="fw fh" href="https://twitter.com/ignfrance/status/1337305256942850048?lang=en">
+									<blockquote>
+										#OpenData Les #données publiques de l’#IGN seront libres et accessibles gratuitement
+										en #LicenceOuverte Etalab 2.0 au 1er janvier 2021 !
+										Pour en savoir plus, rapprochez-vous de vos contacts IGN habituels !
+									</blockquote>
+								</a>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3>
+							e in Italia?
+						</h3>
+						<ul class="ul-horizontal font-1-25" style="margin-top: 50px!important;">
+							<li class="card col-2 flex flex-center text-center">Geoportale <br /> nazionale</li>
+							<li class="card col-2 flex flex-center text-center">ISPRA</li>
+							<li class="card col-2 flex flex-center text-center">SITR</li>
+							<li class="card col-2 flex flex-center text-center">IGM</li>
+						</ul>
+					</section>
+					<section data-auto-animate>
+						<h3>
+							e in Italia?
+						</h3>
+						<p>
+							Alcune criticità
+						</p>
+						<ul class="ul-horizontal font-1-25" style="margin-top: 50px!important;">
+							<li class="col-2 card flex flex-column flex-center text-center mr-2">
+								Geoportale <br /> nazionale
+							</li>
+							<li class="col-2 card flex flex-column flex-center text-center mr-2">
+								ISPRA
+							</li>
+							<li class="col-2 card flex flex-column flex-center text-center mr-2">
+								SITR
+							</li>
+							<li class="col-2 card flex flex-column flex-center text-center">
+								IGM
+							</li>
+						</ul>
+						<ul class="ul-horizontal font-1-25" style="margin-top: 20px!important;">
+							<li class="col-2 flex flex-column mr-2">
+								<div><a href="http://www.pcn.minambiente.it/mattm/note-legali/">licenza</a></div>
+								<div>interoperabilità</div>
+							</li>
+							<li class="col-2 flex flex-column mr-2">
+								<div><a href="http://geoportale.isprambiente.it/licenza-duso/">licenza</a></div>
+								<div>disponibilità</div>
+								<div>flash</div>
+							</li>
+							<li class="col-2 flex flex-column mr-2">
+								<div>frammentazione</div>
+								<div>inconsistenza</div>
+							</li>
+							<li class="col-2 flex flex-column">
+								<div><a href="https://www.igmi.org/agb">licenza</a></div>
+								<div>acquisto</div>
+							</li>
+						</ul>
+					</section>
+					<section data-auto-animate>
+						<h3>
+							e in Italia?
+						</h3>
+						<img style="margin-top: 50px;" src="img/tab_italy.svg" />
+						<div class="flex flex-column flex-end font-0-75">
+							<div>
+								Licenza: presenza di una licenza aperta
+							</div>
+							<div>
+								Commerciale: utilizzo a fini commerciali consentito
+							</div>
+							<div>
+								Accessibilità: facilità di accesso ai dati
+							</div>
+							<div>
+								Organicità e coerenza: frammentazione delle risorse
+							</div>
+							<div>
+								Qualità: acquisizione, conservazione e risoluzione delle risorse
+							</div>
+							<div>
+								Download: possibilità di scaricare le risorse
+							</div>
+						</div>
+						<p class="fragment" data-fragment-index="1">
+							Situazione complessa
+						</p>
+					</section>
+					<section>
+						<h3>
+							DEM: alcuni esempi regionali
+						</h3>
+						<div class="flex">
+							<div class="flex flex-column flex-center col-6">
+								<p>
+									Chi fa bene
+								</p>
+								<div class="flex flex-center font-1">
+									<div class="flex flex-center mr-10">
+										<div class="slide-image-container slide13-image-container">
+											<img src="img/check-mark.png" />
+										</div>
+										<div>
+											Sicilia
+										</div>
+									</div>
+									<div class="flex flex-center">
+										<div class="slide-image-container slide13-image-container">
+											<img src="img/check-mark.png" />
+										</div>
+										<div>
+											Friuli Venezia Giulia
+										</div>
+									</div>
+								</div>
+								<p class="fragment" style="margin-top: 100px!important;">
+									Perché?
+								</p>
+								<div class="fragment flex flex flex-column flex-center font-1">
+									<span>Licenza aperta</span>
+									<span>Uso commerciale</span>
+									<span>Qualità</span>
+									<span>Copertura</span>
+								</div>
+							</div>
+							<div class="flex flex-column flex-center col-6">
+								<p>
+									Chi fa male
+								</p>
+								<div class="flex flex-center font-1">
+									<div class="flex flex-center mr-10">
+										<div class="slide-image-container slide13-image-container">
+											<img src="img/cancel.png" />
+										</div>
+										<div>
+											Lombardia
+										</div>
+									</div>
+									<div class="flex flex-center">
+										<div class="slide-image-container slide13-image-container">
+											<img src="img/cancel.png" />
+										</div>
+										<div>
+											Umbria
+										</div>
+									</div>
+								</div>
+								<p class="fragment" style="margin-top: 100px!important;">
+									Perché?
+								</p>
+								<div class="fragment flex flex flex-column flex-center font-1">
+									<span>Licenza chiusa (Lombardia)</span>
+									<span>Uso commerciale non consentito (Lombardia)</span>
+									<span>Qualità (Umbria)</span>
+									<span>Copertura (Umbria)</span>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h3>
+							Mappe: alcuni esempi regionali
+						</h3>
+						<div class="fragment grow flex flex-center font-huge">
+							?
+						</div>
+					</section>
+				</section>
+				<section>
+					<section data-auto-animate>
+						<h3 data-id="geoportale">
+							Geoportale nazionale
+						</h3>
+						<p>
+							dovrebbe permettere di accedere alle informazioni territoriali
+						</p>
+						<ul>
+							<li>Visualizzatore [<a href="http://www.pcn.minambiente.it/viewer/">#</a>]</li>
+							<li>Catalogo (WMS, WFS) [<a href="http://www.pcn.minambiente.it/mattm/catalogo-metadati/">#</a>]</li>
+						</ul>
+					</section>
+					<section data-auto-animate>
+						<h3 data-id="geoportale">
+							Geoportale nazionale
+						</h3>
+						<p>
+							ma
+						</p>
+						<ul clss="ul-no-decoration">
+							<li class="fragment li-flex-row" data-fragment-index="1">
+								<div class="slide-image-container slide14-image-container">
+									<img src="img/check-mark.png" />
+								</div>
+								<a href="http://www.pcn.minambiente.it/mattm/faq/">licenza</a>
+							</li>
+							<li class="fragment li-flex-row" data-fragment-index="2">
+								<div class="slide-image-container slide14-image-container">
+									<img src="img/cancel.png" />
+								</div>
+								<div>
+									accessibilità
+								</div>
+							</li>
+						</ul>
+						<p class="fragment" data-fragment-index="3" style="margin-top: 50px;">
+							Il <a href="http://www.pcn.minambiente.it/mattm/servizio-distribuzione-dati-pst/">download</a> dei Lidar prevede
+							<br />
+							una procedura lunga e farraginosa
+						</p>
+					</section>
+				</section>
+				<section>
+					<section data-auto-animate>
+						<h3 class="r-fit-text">
+							A cosa <a href="http://www.pcn.minambiente.it/mattm/inspire/">INSPIRE</a> potrebbe ispirarsi
+						</h3>
+					</section>
+					<section data-auto-animate>
+						<h3 class="slide15-title">
+							A cosa <a href="http://www.pcn.minambiente.it/mattm/inspire/">INSPIRE</a> potrebbe ispirarsi
+						</h3>
+						<div class="slide15-subtitle">
+							<div>
+								USA
+							</div>
+							<div class="slide-image-container slide15-flag-image-container">
+								<img src="img/united-states.png" />
+							</div>
+						</div>
+						<ul class="ul-horizontal font-1-5">
+							<li class="li-flex-column">
+								<div class="slide-image-container slide15-image-container">
+									<img src="img/topo_usa_r.png" />
+								</div>
+								<div>
+									mappe topografiche
+								</div>
+							</li>
+							<li class="li-flex-column">
+								<div class="slide-image-container slide15-image-container">
+									<img src="img/geo_usa_r.png" />
+								</div>
+								<div>
+									mappe geologiche
+								</div>
+							</li>
+							<li class="li-flex-column">
+								<div class="slide-image-container slide15-image-container">
+									<img src="img/dem_usa_r.png" />
+								</div>
+								<div>
+									DEM e Lidar
+								</div>
+							</li>
+						</ul>
+						<p class="fragment font-2" style="margin-top: 80px!important;">
+							ma sono gli USA!
+						</p>
+					</section>
+					<section data-auto-animate>
+						<h3 class="slide15-title">
+							A cosa <a href="http://www.pcn.minambiente.it/mattm/inspire/">INSPIRE</a> potrebbe ispirarsi
+						</h3>
+						<div class="slide15-subtitle">
+							<div>
+								Norvegia
+							</div>
+							<div class="slide-image-container slide15-flag-image-container">
+								<img src="img/norway.png" />
+							</div>
+						</div>
+						<ul class="ul-horizontal-around font-1-5">
+							<li class="li-flex-column">
+								<div class="slide-image-container slide15-image-container">
+									<img src="img/norway_map_r.png" />
+								</div>
+								<div>
+									mappe
+								</div>
+							</li>
+							<li class="li-flex-column">
+								<div class="slide-image-container slide15-image-container">
+									<img src="img/norway_dem_r.png" />
+								</div>
+								<div>
+									DEM e Lidar
+								</div>
+							</li>
+						</ul>
+						<p class="fragment font-2" style="margin-top: 80px!important;">
+							ma è un Paese del Nord Europa!
+						</p>
+					</section>
+					<section data-auto-animate>
+						<h3 class="slide15-title">
+							A cosa <a href="http://www.pcn.minambiente.it/mattm/inspire/">INSPIRE</a> potrebbe ispirarsi
+						</h3>
+						<div class="slide15-subtitle">
+							<div>
+								Slovenia
+							</div>
+							<div class="slide-image-container slide15-flag-image-container">
+								<img src="img/slovenia.png" />
+							</div>
+						</div>
+						<ul class="ul-horizontal-center font-1-5">
+							<li class="li-flex-column">
+								<div class="slide-image-container slide15-image-container">
+									<img src="img/slovenia_all_r.png" />
+								</div>
+								<div>
+									mappe, DEM e Lidar
+								</div>
+							</li>
+						</ul>
+						<p class="fragment font-2" style="margin-top: 80px!important;">
+							ma è piccola!
+						</p>
+					</section>
+					<section data-auto-animate>
+						<h3 class="slide15-title">
+							A cosa <a href="http://www.pcn.minambiente.it/mattm/inspire/">INSPIRE</a> potrebbe ispirarsi
+						</h3>
+						<div class="slide15-subtitle">
+							<div>
+								Spagna
+							</div>
+							<div class="slide-image-container slide15-flag-image-container">
+								<img src="img/spain.png" />
+							</div>
+						</div>
+						<ul class="ul-horizontal-center font-1-5">
+							<li class="li-flex-column">
+								<div class="slide-image-container slide15-image-container">
+									<img src="img/spain_all_r.png" />
+								</div>
+								<div>
+									mappe, DEM e Lidar
+								</div>
+							</li>
+						</ul>
+						<p class="fragment font-2" style="margin-top: 80px!important;">
+							altre scuse?
+						</p>
+					</section>
+				</section>
+				<section>
+					<section data-auto-animate>
+						<p>
+							Alcuni esempi virtuosi italiani
+						</p>
+						<h3 data-id="virtuosi-title">
+							ISPRA
+						</h3>
+						<div class="flex flex-center" style='margin-top: 50px;'>
+							<ul class="fragment ul-no-decoration" data-fragment-index="1">
+								<li class="li-flex-row">
+									<div class="slide-image-container slide16-image-container">
+										<img src="img/check-mark.png" />
+									</div>
+									<div>
+										licenza d'uso (<a href="http://geoportale.isprambiente.it/licenza-duso/">IODL</a>)
+									</div>
+								</li>
+								<li class="li-flex-row">
+									<div class="slide-image-container slide16-image-container">
+										<img src="img/check-mark.png" />
+									</div>
+									<div>
+										uso commerciale
+									</div>
+								</li>
+								<li class="li-flex-row">
+									<div class="slide-image-container slide16-image-container">
+										<img src="img/check-mark.png" />
+									</div>
+									<div>
+										vasta collezione
+									</div>
+								</li>
+							</ul>
+							<ul class="fragment ul-no-decoration" data-fragment-index="2">
+								<li class="li-flex-row">
+									<div class="slide-image-container slide16-image-container">
+										<img src="img/cancel.png" />
+									</div>
+									<div>
+										disponibilità
+									</div>
+								</li>
+								<li class="li-flex-row">
+									<div class="slide-image-container slide16-image-container">
+										<img src="img/cancel.png" />
+									</div>
+									<div>
+										licenza parziale
+									</div>
+								</li>
+								<li class="li-flex-row">
+									<div class="slide-image-container slide16-image-container">
+										<img src="img/cancel.png" />
+									</div>
+									<div>
+										accessibilità
+									</div>
+								</li>
+							</ul>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<p>
+							Alcuni esempi virtuosi italiani
+						</p>
+						<h3 data-id="virtuosi-title">
+							IGNV e Tinitaly
+						</h3>
+						<div class="flex flex-center" style='margin-top: 50px;'>
+							<ul class="fragment ul-no-decoration" data-fragment-index="1">
+								<li class="li-flex-row">
+									<div class="slide-image-container slide16-image-container">
+										<img src="img/check-mark.png" />
+									</div>
+									<div>
+										licenza d'uso (<a href="http://tinitaly.pi.ingv.it/">CC BY 4.0</a>)
+									</div>
+								</li>
+								<li class="li-flex-row">
+									<div class="slide-image-container slide16-image-container">
+										<img src="img/check-mark.png" />
+									</div>
+									<div>
+										download (WCS)
+									</div>
+								</li>
+								<li class="li-flex-row">
+									<div class="slide-image-container slide14-image-container">
+										<img src="img/check-mark.png" />
+									</div>
+									<div>
+										risoluzione
+									</div>
+								</li>
+							</ul>
+							<ul class="fragment ul-no-decoration" data-fragment-index="2">
+								<li class="li-flex-row">
+									<div class="slide-image-container slide14-image-container">
+										<img src="img/cancel.png" />
+									</div>
+									<div>
+										anno
+									</div>
+								</li>
+							</ul>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<p>
+							Alcuni esempi virtuosi italiani
+						</p>
+						<h3 data-id="virtuosi-title">
+							SITR
+						</h3>
+						<div class="flex flex-center" style='margin-top: 50px;'>
+							<ul class="fragment ul-no-decoration" data-fragment-index="1">
+								<li class="li-flex-row">
+									<div class="slide-image-container slide16-image-container">
+										<img src="img/check-mark.png" />
+									</div>
+									<div>
+										download (WCS)
+									</div>
+								</li>
+								<li class="li-flex-row">
+									<div class="slide-image-container slide16-image-container">
+										<img src="img/check-mark.png" />
+									</div>
+									<div>
+										risoluzione
+									</div>
+								</li>
+							</ul>
+							<ul class="fragment ul-no-decoration" data-fragment-index="2">
+								<li class="li-flex-row">
+									<div class="slide-image-container slide16-image-container">
+										<img src="img/cancel.png" />
+									</div>
+									<div>
+										licenza d'uso
+									</div>
+								</li>
+								<li class="li-flex-row">
+									<div class="slide-image-container slide16-image-container">
+										<img src="img/cancel.png" />
+									</div>
+									<div>
+										frammentazione
+									</div>
+								</li>
+								<li class="li-flex-row">
+									<div class="slide-image-container slide16-image-container">
+										<img src="img/cancel.png" />
+									</div>
+									<div>
+										accessibilità
+									</div>
+								</li>
+							</ul>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section data-auto-animate>
+						<h3 class="r-fit-text">
+							Fine
+						</h3>
+					</section>
+					<section data-auto-animate>
+						<h3 class="slide17-title">
+							Fine
+						</h3>
+						<h3 class="r-fit-text">
+							Q & A
+						</h3>
+						<p class="font-1-5" style="margin-bottom: 0!important;">
+							Vizart | 
+							<a href="https://www.vizart.io">vizart.io</a>
+							 | @hellovizart
+						</p>
+						<div class="slide-image-container slide17-image-container">
+							<img src="img/vizart.png" />
+							<img src="img/logoODS.png" />
+						</div>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
